@@ -1,0 +1,402 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Configuration parameters for the Self-Service Experience application.
+
+Parameters:
+  Application:
+    Description: The name of the application
+    Type: String
+    Default: "self-service"
+
+  Environment:
+    Description: The environment type
+    Type: String
+    Default: local
+    AllowedValues:
+      - "local"
+      - "development"
+      - "build"
+      - "staging"
+      - "integration"
+      - "production"
+
+  LocalName:
+    Description: Unique name used for ephemeral environments
+    Type: String
+    Default: ""
+
+Mappings:
+  AllowedEmailDomainsSource:
+    Environment:
+      local: "allowed-test-domains"
+      dev: "allowed-test-domains"
+      build: "allowed-test-domains"
+      staging: "allowed-test-domains"
+      integration: "allowed-test-domains"
+      production: "allowed-email-domains"
+
+  ApiNotificationsEmail:
+    Environment:
+      local: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+      dev: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+      build: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+      staging: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+      integration: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+      production: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
+
+  AuthBaseUrl:
+    Environment:
+      local: "https://oidc.integration.account.gov.uk"
+      dev: "https://oidc.integration.account.gov.uk"
+      build: "https://oidc.integration.account.gov.uk"
+      staging: "https://oidc.integration.account.gov.uk"
+      integration: "https://oidc.integration.account.gov.uk"
+      production: "https://oidc.integration.account.gov.uk"
+
+  ConfigDeletionProtection:
+    Environment:
+      local: "INACTIVE"
+      dev: "INACTIVE"
+      build: "INACTIVE"
+      staging: "INACTIVE"
+      integration: "ACTIVE"
+      production: "ACTIVE"
+
+  CognitoExternalId:
+    Environment:
+      local: "018f04f8-900d-7cb3-90f3-a6638b90077b"
+      dev: "018f04f8-5624-7556-afcd-f4ad74be87af"
+      build: "018f04f8-3367-7a6f-b3bf-3a4c7d7c74bd"
+      staging: "018f04f8-a900-77d1-b74f-53637bd7da93"
+      integration: "018f04f7-f3f3-7eb9-9b81-b6949e207d19"
+      production: "018f04f8-cde3-77cd-8128-4e9bed9510d2"
+
+  GoogleAnalyticsDisabled:
+    Environment:
+      local: "false"
+      dev: "false"
+      build: "false"
+      staging: "false"
+      integration: "true"
+      production: "true"
+
+  GoogleAnalyticsGtmContainerId:
+    Environment:
+      local: "GTM-KD86CMZ"
+      dev: "GTM-KD86CMZ"
+      build: "GTM-KD86CMZ"
+      staging: "GTM-KD86CMZ"
+      integration: "GTM-KD86CMZ"
+      production: "GTM-K4PBJH3"
+
+  GoogleTagId:
+    Environment:
+      local: "GTM-PFTQ6G2"
+      dev: "GTM-PFTQ6G2"
+      build: "GTM-PFTQ6G2"
+      staging: "GTM-PFTQ6G2"
+      integration: "GTM-PFTQ6G2"
+      production: "GTM-W38DXV2"
+
+  IdentityVerificationEnabled:
+    Environment:
+      local: "Yes"
+      dev: "Yes"
+      build: "Yes"
+      staging: "Yes"
+      integration: "Yes"
+      production: "Yes"
+
+  PublicBetaSignupSheetDataRange:
+    Environment:
+      local: "Publicbeta!A1"
+      dev: "Publicbeta!A1"
+      build: "Publicbeta!A1"
+      staging: "Publicbeta!A1"
+      integration: "Publicbeta!A1"
+      production: "Publicbeta!A1"
+
+  PublicBetaSheetHeaderRange:
+    Environment:
+      local: "Publicbeta!A1:Y1"
+      dev: "Publicbeta!A1:Y1"
+      build: "Publicbeta!A1:Y1"
+      staging: "Publicbeta!A1:Y1"
+      integration: "Publicbeta!A1:Y1"
+      production: "Publicbeta!A1:Y1"
+
+  ShowTestBanner:
+    Environment:
+      local: "true"
+      dev: "true"
+      build: "true"
+      staging: "true"
+      integration: "true"
+      production: "false"
+
+  UniversalAnalyticsDisabled:
+    Environment:
+      local: "false"
+      dev: "false"
+      build: "false"
+      staging: "false"
+      integration: "false"
+      production: "false"
+
+  UniversalAnalyticsGtmContainerId:
+    Environment:
+      local: "GTM-TK92W68"
+      dev: "GTM-TK92W68"
+      build: "GTM-TK92W68"
+      staging: "GTM-TK92W68"
+      integration: "GTM-TK92W68"
+      production: "GTM-TT5HDKV"
+
+  UseCognitoDisasterRecovery:
+    Environment:
+      local: "false"
+      dev: "false"
+      build: "false"
+      staging: "false"
+      integration: "false"
+      production: "false"
+
+  UseStubOtp:
+    Environment:
+      local: "false"
+      dev: "false"
+      build: "false"
+      staging: "false"
+      integration: "false"
+      production: "false"
+
+  UserSignupSheetDataRange:
+    Environment:
+      local: "Admintool!A1"
+      dev: "Admintool!A1"
+      build: "Admintool!A1"
+      staging: "Admintool!A1"
+      integration: "Admintool!A1"
+      production: "Admintool!A1"
+
+  UserSignupSheetHeaderRange:
+    Environment:
+      local: "Admintool!A1:Y1"
+      dev: "Admintool!A1:Y1"
+      build: "Admintool!A1:Y1"
+      staging: "Admintool!A1:Y1"
+      integration: "Admintool!A1:Y1"
+      production: "Admintool!A1:Y1"
+
+Conditions:
+  IsLocal: !Not [ !Equals [ !Ref Environment, "local" ] ]
+
+Rules:
+  LocalNameRequiredForLocalEnvironment:
+    RuleCondition: !Equals [ !Ref Environment, "local" ]
+    Assertions:
+      - Assert: !Not [ !Equals [ !Ref LocalName, "" ] ]
+        AssertDescription: >
+          Must specify LocalName when Environment is "local"
+
+  LocalNameEmptyForNotLocalEnvironment:
+    RuleCondition: !Not [ !Equals [ !Ref Environment, "local" ] ]
+    Assertions:
+      - Assert: !Equals [ !Ref LocalName, "" ]
+        AssertDescription: >
+          Must not specify LocalName when Environment is not "local"
+
+  ProtectIntegrationEnvironment:
+    RuleCondition: !Equals [ !Ref AWS::AccountId, "663985455444" ]
+    Assertions:
+      - Assert: !Equals [ !Ref Environment, "integration" ]
+        AssertDescription: >
+          Only deploy "integration" parameters to the integration account
+
+  ProtectProductionEnvironment:
+    RuleCondition: !Equals [ !Ref AWS::AccountId, "389946456390" ]
+    Assertions:
+      - Assert: !Equals [ !Ref Environment, "production" ]
+        AssertDescription: >
+          Only deploy "production" parameters to the production account
+
+Resources:
+  AllowedEmailDomainsSourceParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/allowed-email-domains-source"
+      Type: String
+      Value: !FindInMap [ AllowedEmailDomainsSource, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  ApiNotificationsEmailParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/api/notifications-email"
+      Type: String
+      Value: !FindInMap [ ApiNotificationsEmail, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  AuthBaseUrlParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/api/auth-base-url"
+      Type: String
+      Value: !FindInMap [ AuthBaseUrl, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  ConfigDeletionProtectionParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/config/deletion-protection-enabled"
+      Type: String
+      Value: !FindInMap [ ConfigDeletionProtection, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  CognitoExternalIdParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/cognito/external-id"
+      Type: String
+      Value: !FindInMap [ CognitoExternalId, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  GoogleAnalyticsDisabledParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-analytics-4-disabled"
+      Type: String
+      Value: !FindInMap [ GoogleAnalyticsDisabled, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  GoogleAnalyticsGtmContainerIdParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-analytics-4-gtm-container-id"
+      Type: String
+      Value: !FindInMap [ GoogleAnalyticsGtmContainerId, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  GoogleTagIdParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-tag-id"
+      Type: String
+      Value: !FindInMap [ GoogleTagId, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  IdentityVerificationEnabledParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/api/identity-verification-enabled"
+      Type: String
+      Value: !FindInMap [ IdentityVerificationEnabled, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  PublicBetaSignupSheetDataRangeParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/public-beta-sheet-data-range"
+      Type: String
+      Value: !FindInMap [ PublicBetaSignupSheetDataRange, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  PublicBetaSheetHeaderRangeParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/public-beta-sheet-header-range"
+      Type: String
+      Value: !FindInMap [ PublicBetaSheetHeaderRange, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  ShowTestBannerParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/show-test-banner"
+      Type: String
+      Value: !FindInMap [ ShowTestBanner, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UniversalAnalyticsDisabledParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/universal-analytics-disabled"
+      Type: String
+      Value: !FindInMap [ UniversalAnalyticsDisabled, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UniversalAnalyticsGtmContainerIdParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/universal-analytics-gtm-container-id"
+      Type: String
+      Value: !FindInMap [ UniversalAnalyticsGtmContainerId, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UseCognitoDisasterRecoveryParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/use-cognito-dr"
+      Type: String
+      Value: !FindInMap [ UseCognitoDisasterRecovery, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UseStubOtpParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/use-stub-otp"
+      Type: String
+      Value: !FindInMap [ UseStubOtp, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UserSignupSheetDataRangeParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/user-signup-sheet-data-range"
+      Type: String
+      Value: !FindInMap [ UserSignupSheetDataRange, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application
+
+  UserSignupSheetHeaderRangeParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/user-signup-sheet-header-range"
+      Type: String
+      Value: !FindInMap [ UserSignupSheetHeaderRangeParameter, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "onboarding-config"
+        "sse:application": !Ref Application

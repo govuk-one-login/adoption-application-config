@@ -1,0 +1,70 @@
+name: Build and deploy self-service experience configuration
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - self-service/*
+
+permissions: { }
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  STACK_NAME: onboarding-configuration-self-service-experience
+  APPLICATION: self-service
+
+jobs:
+  build:
+    name: Build stack
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: ${{ steps.build.outputs.artifact-name }}
+      cache-name: ${{ steps.build.outputs.cache-key }}
+      cache-restore-keys: ${{ steps.build.outputs.cache-restore-keys }}
+    steps:
+      - name: Build config self-service
+        uses: govuk-one-login/github-actions/sam/build-application@6144f39407b01c9b25b39537b3956deca9e32620 # 22/02/2024
+        id: build-config-self-service
+        with:
+          pull-repository: true
+          template: ${{ vars.APPLICATION }}/waf.template.yml
+          cache-name: ${{ vars.STACK_NAME }}
+          artifact-name: ${{ vars.STACK_NAME }}-sam
+
+  deploy:
+    name: Deploy stack
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: build
+    concurrency:
+      group: deploy-${{ vars.STACK_NAME }}-${{ vars.APPLICATION }}-${{ github.head_ref || github.ref_name }}
+    outputs:
+      aws-region: ${{ steps.deploy.outputs.aws-region }}
+      stack-name: ${{ steps.deploy.outputs.stack-name }}
+      stack-url: ${{ steps.deploy.outputs.stack-url }}
+      stack-outputs: ${{ steps.deploy.outputs.stack-outputs }}
+    steps:
+      - name: Deploy config self-service
+        uses: govuk-one-login/github-actions/sam/deploy-stack@6144f39407b01c9b25b39537b3956deca9e32620 # 22/02/2024
+        id: deploy-config-self-service
+        with:
+          stack-name: ${{ vars.STACK_NAME }}-${{ vars.APPLICATION }}
+          aws-role-arn: ${{ vars.DEPLOYMENT_ROLE_ARN }}
+          sam-deployment-bucket: ${{ vars.DEPLOYMENT_ARTIFACTS_BUCKET }}
+          artifact-name: ${{ needs.build.outputs.artifact-name }}
+          cache-name: ${{ needs.build.outputs.cache-name }}
+          template: config.template.yml
+          s3-prefix: onboarding-config
+          tags: |-
+            sse:component=${{ vars.STACK_NAME }}
+            sse:application=${{ vars.APPLICATION }}
+            sse:stack-type=infrastructure
+            sse:stack-role=config
+            sse:deployment-source=github-actions
+          parameters: |
+            Environment=development
+            Application=${{ vars.APPLICATION }}
