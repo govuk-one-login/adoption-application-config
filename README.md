@@ -1,6 +1,6 @@
 # Adoption Configuration Pipelines
 
-This repository contains the configuration for each application within the Adoption pod.
+This repository contains the configuration for each application within the Adoption pod. Each application has it's own configuration set.
 
 See the [configuration pipelines documentation](https://govukverify.atlassian.net/wiki/spaces/PLAT/pages/3071705136/How+to+create+a+configuration+pipeline) for more information.
 
