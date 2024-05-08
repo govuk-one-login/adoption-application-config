@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Deploy (development)
         id: deploy-development
-        uses: govuk-one-login/github-actions/secure-pipelines/deploy-application@94bfee8a40ab914626a7fb5bc459dd2c6a4ed435 # 5/03/2024
+        uses: govuk-one-login/github-actions/secure-pipelines/deploy-application@a154a3241f59047aea80820a36c8e5cddb9d77ce # 8/05/2024
         timeout-minutes: 15
         with:
           aws-role-arn: ${{ env.DEPLOYMENT_ROLE_ARN }}
