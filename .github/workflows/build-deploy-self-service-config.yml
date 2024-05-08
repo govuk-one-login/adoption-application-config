@@ -33,4 +33,4 @@ jobs:
           aws-role-arn: ${{ env.DEPLOYMENT_ROLE_ARN }}
           artifact-bucket-name: ${{ env.ARTIFACT_SOURCE_BUCKET_NAME }}
           pipeline-name: ${{ env.PIPELINE_NAME }}
-          template: ${{ vars.APPLICATION }}/config.template.yml
+          template: $APPLICATION/config.template.yml
