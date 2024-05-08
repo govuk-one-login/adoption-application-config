@@ -198,21 +198,18 @@ Rules:
       - Assert: !Not [ !Equals [ !Ref LocalName, "" ] ]
         AssertDescription: >
           Must specify LocalName when Environment is "local"
-
   LocalNameEmptyForNotLocalEnvironment:
     RuleCondition: !Not [ !Equals [ !Ref Environment, "local" ] ]
     Assertions:
       - Assert: !Equals [ !Ref LocalName, "" ]
         AssertDescription: >
           Must not specify LocalName when Environment is not "local"
-
   ProtectIntegrationEnvironment:
     RuleCondition: !Equals [ !Ref AWS::AccountId, "663985455444" ]
     Assertions:
       - Assert: !Equals [ !Ref Environment, "integration" ]
         AssertDescription: >
           Only deploy "integration" parameters to the integration account
-
   ProtectProductionEnvironment:
     RuleCondition: !Equals [ !Ref AWS::AccountId, "389946456390" ]
     Assertions:
