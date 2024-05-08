@@ -224,7 +224,12 @@ Resources:
   AllowedEmailDomainsSourceParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/allowed-email-domains-source"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "allowed-email-domains-source"
       Type: String
       Value: !FindInMap [ AllowedEmailDomainsSource, Environment, !Ref Environment ]
       Tags:
@@ -234,7 +239,12 @@ Resources:
   ApiNotificationsEmailParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/api/notifications-email"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment]
+          - "api"
+          - "notifications-email"
       Type: String
       Value: !FindInMap [ ApiNotificationsEmail, Environment, !Ref Environment ]
       Tags:
@@ -244,7 +254,12 @@ Resources:
   AuthBaseUrlParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/api/auth-base-url"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "api"
+          - "auth-base-url"
       Type: String
       Value: !FindInMap [ AuthBaseUrl, Environment, !Ref Environment ]
       Tags:
@@ -254,7 +269,12 @@ Resources:
   ConfigDeletionProtectionParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/config/deletion-protection-enabled"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "config"
+          - "deletion-protection-enabled"
       Type: String
       Value: !FindInMap [ ConfigDeletionProtection, Environment, !Ref Environment ]
       Tags:
@@ -264,7 +284,12 @@ Resources:
   CognitoExternalIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/cognito/external-id"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "cognito"
+          - "external-id"
       Type: String
       Value: !FindInMap [ CognitoExternalId, Environment, !Ref Environment ]
       Tags:
@@ -274,7 +299,12 @@ Resources:
   GoogleAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-analytics-4-disabled"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "google-analytics-4-disabled"
       Type: String
       Value: !FindInMap [ GoogleAnalyticsDisabled, Environment, !Ref Environment ]
       Tags:
@@ -284,7 +314,12 @@ Resources:
   GoogleAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-analytics-4-gtm-container-id"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "google-analytics-4-gtm-container-id"
       Type: String
       Value: !FindInMap [ GoogleAnalyticsGtmContainerId, Environment, !Ref Environment ]
       Tags:
@@ -294,7 +329,12 @@ Resources:
   GoogleTagIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/google-tag-id"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "google-tag-id"
       Type: String
       Value: !FindInMap [ GoogleTagId, Environment, !Ref Environment ]
       Tags:
@@ -304,7 +344,12 @@ Resources:
   IdentityVerificationEnabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/api/identity-verification-enabled"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "api"
+          - "identity-verification-enabled"
       Type: String
       Value: !FindInMap [ IdentityVerificationEnabled, Environment, !Ref Environment ]
       Tags:
@@ -314,7 +359,12 @@ Resources:
   PublicBetaSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/public-beta-sheet-data-range"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "public-beta-sheet-data-range"
       Type: String
       Value: !FindInMap [ PublicBetaSignupSheetDataRange, Environment, !Ref Environment ]
       Tags:
@@ -324,7 +374,12 @@ Resources:
   PublicBetaSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/public-beta-sheet-header-range"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "public-beta-sheet-header-range"
       Type: String
       Value: !FindInMap [ PublicBetaSheetHeaderRange, Environment, !Ref Environment ]
       Tags:
@@ -334,7 +389,12 @@ Resources:
   ShowTestBannerParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/show-test-banner"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "show-test-banner"
       Type: String
       Value: !FindInMap [ ShowTestBanner, Environment, !Ref Environment ]
       Tags:
@@ -344,7 +404,12 @@ Resources:
   UniversalAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/universal-analytics-disabled"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "universal-analytics-disabled"
       Type: String
       Value: !FindInMap [ UniversalAnalyticsDisabled, Environment, !Ref Environment ]
       Tags:
@@ -354,7 +419,12 @@ Resources:
   UniversalAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/universal-analytics-gtm-container-id"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "universal-analytics-gtm-container-id"
       Type: String
       Value: !FindInMap [ UniversalAnalyticsGtmContainerId, Environment, !Ref Environment ]
       Tags:
@@ -364,7 +434,12 @@ Resources:
   UseCognitoDisasterRecoveryParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/use-cognito-dr"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "use-cognito-dr"
       Type: String
       Value: !FindInMap [ UseCognitoDisasterRecovery, Environment, !Ref Environment ]
       Tags:
@@ -374,7 +449,12 @@ Resources:
   UseStubOtpParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/use-stub-otp"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "use-stub-otp"
       Type: String
       Value: !FindInMap [ UseStubOtp, Environment, !Ref Environment ]
       Tags:
@@ -384,7 +464,12 @@ Resources:
   UserSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/user-signup-sheet-data-range"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "user-signup-sheet-data-range"
       Type: String
       Value: !FindInMap [ UserSignupSheetDataRange, Environment, !Ref Environment ]
       Tags:
@@ -394,7 +479,12 @@ Resources:
   UserSignupSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/frontend/user-signup-sheet-header-range"
+      Name: !Join
+        - "/"
+        - - !Ref Application
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - "frontend"
+          - "user-signup-sheet-header-range"
       Type: String
       Value: !FindInMap [ UserSignupSheetHeaderRangeParameter, Environment, !Ref Environment ]
       Tags:
