@@ -1,6 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Configuration parameters for the Self-Service Experience application.
+Description: >
+  govuk-one-login adoption-application-config self-service template version: v1.0.0
+  Secure pipelines template managed by dev-platform.
+  Configuration parameters for the Self-Service Experience application.
 
 Parameters:
   Application:
