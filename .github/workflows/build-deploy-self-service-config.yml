@@ -13,10 +13,6 @@ defaults:
   run:
     shell: bash
 
-env:
-  STACK_NAME: onboarding-configuration-self-service-experience
-  APPLICATION: self-service
-
 jobs:
   deploy-development:
     name: Deploy (development)
@@ -24,13 +20,9 @@ jobs:
     environment: sse_development
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
+    env:
+      AWS_REGION: eu-west-2
     steps:
-      - name: Set up AWS credentails
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ env.DEPLOYMENT_ROLE_ARN }}
-          aws-region: eu-west-2
-
       - name: Deploy (development)
         id: deploy-development
         uses: govuk-one-login/github-actions/secure-pipelines/deploy-application@a154a3241f59047aea80820a36c8e5cddb9d77ce # 8/05/2024
