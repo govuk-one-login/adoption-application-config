@@ -15,7 +15,7 @@ Parameters:
     Default: local
     AllowedValues:
       - "local"
-      - "development"
+      - "dev"
       - "build"
       - "staging"
       - "integration"
