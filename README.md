@@ -25,15 +25,21 @@ Under the Resources section:
   ExampleSettingParameter:
     Type: AWS::SSM::Parameter
     Properties:
-      Name: !Sub "/${Application}/${Environment}${LocalName}/config/example-setting"
+      Name: !Join
+        - "/"
+        - - !Sub "/${Application}"
+          - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment]
+          - "config"
+          - "example-setting"
       Type: String
       Value: !FindInMap [ ExampleSetting, Environment, !Ref Environment ]
       Tags:
-        "sse:component": "onboarding-config"
+        "sse:component": "adoption-application-config"
+        "sse:environment": !Ref Environment
         "sse:application": !Ref Application
 ```
 
-**Note:** Each parameter _MUST_ include the tags specified above.
+**Note:** Each parameter should include the tags specified above, the application will be given attribute-based access to the parameters with these tags.
 
 ### Mapping
 
