@@ -7,7 +7,6 @@ Parameters:
     Description: The name of the application
     Type: String
     Default: "self-service"
-
   Environment:
     Description: The environment type
     Type: String
@@ -19,7 +18,6 @@ Parameters:
       - "staging"
       - "integration"
       - "production"
-
   LocalName:
     Description: Unique name used for ephemeral environments
     Type: String
@@ -34,7 +32,6 @@ Mappings:
       staging: "allowed-test-domains"
       integration: "allowed-test-domains"
       production: "allowed-email-domains"
-
   ApiNotificationsEmail:
     Environment:
       local: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
@@ -43,7 +40,6 @@ Mappings:
       staging: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
       integration: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
       production: "di-dfa-tech+dev-notifications@digital.cabinet-office.gov.uk"
-
   AuthBaseUrl:
     Environment:
       local: "https://oidc.integration.account.gov.uk"
@@ -52,7 +48,6 @@ Mappings:
       staging: "https://oidc.integration.account.gov.uk"
       integration: "https://oidc.integration.account.gov.uk"
       production: "https://oidc.integration.account.gov.uk"
-
   ConfigDeletionProtection:
     Environment:
       local: "INACTIVE"
@@ -61,7 +56,6 @@ Mappings:
       staging: "INACTIVE"
       integration: "ACTIVE"
       production: "ACTIVE"
-
   CognitoExternalId:
     Environment:
       local: "018f04f8-900d-7cb3-90f3-a6638b90077b"
@@ -70,7 +64,6 @@ Mappings:
       staging: "018f04f8-a900-77d1-b74f-53637bd7da93"
       integration: "018f04f7-f3f3-7eb9-9b81-b6949e207d19"
       production: "018f04f8-cde3-77cd-8128-4e9bed9510d2"
-
   GoogleAnalyticsDisabled:
     Environment:
       local: "false"
@@ -79,7 +72,6 @@ Mappings:
       staging: "false"
       integration: "true"
       production: "true"
-
   GoogleAnalyticsGtmContainerId:
     Environment:
       local: "GTM-KD86CMZ"
@@ -88,7 +80,6 @@ Mappings:
       staging: "GTM-KD86CMZ"
       integration: "GTM-KD86CMZ"
       production: "GTM-K4PBJH3"
-
   GoogleTagId:
     Environment:
       local: "GTM-PFTQ6G2"
@@ -97,7 +88,6 @@ Mappings:
       staging: "GTM-PFTQ6G2"
       integration: "GTM-PFTQ6G2"
       production: "GTM-W38DXV2"
-
   IdentityVerificationEnabled:
     Environment:
       local: "Yes"
@@ -106,7 +96,6 @@ Mappings:
       staging: "Yes"
       integration: "Yes"
       production: "Yes"
-
   PublicBetaSignupSheetDataRange:
     Environment:
       local: "Publicbeta!A1"
@@ -115,7 +104,6 @@ Mappings:
       staging: "Publicbeta!A1"
       integration: "Publicbeta!A1"
       production: "Publicbeta!A1"
-
   PublicBetaSheetHeaderRange:
     Environment:
       local: "Publicbeta!A1:Y1"
@@ -124,7 +112,6 @@ Mappings:
       staging: "Publicbeta!A1:Y1"
       integration: "Publicbeta!A1:Y1"
       production: "Publicbeta!A1:Y1"
-
   ShowTestBanner:
     Environment:
       local: "true"
@@ -133,7 +120,6 @@ Mappings:
       staging: "true"
       integration: "true"
       production: "false"
-
   UniversalAnalyticsDisabled:
     Environment:
       local: "false"
@@ -142,7 +128,6 @@ Mappings:
       staging: "false"
       integration: "false"
       production: "false"
-
   UniversalAnalyticsGtmContainerId:
     Environment:
       local: "GTM-TK92W68"
@@ -151,7 +136,6 @@ Mappings:
       staging: "GTM-TK92W68"
       integration: "GTM-TK92W68"
       production: "GTM-TT5HDKV"
-
   UseCognitoDisasterRecovery:
     Environment:
       local: "false"
@@ -160,7 +144,6 @@ Mappings:
       staging: "false"
       integration: "false"
       production: "false"
-
   UseStubOtp:
     Environment:
       local: "false"
@@ -169,7 +152,6 @@ Mappings:
       staging: "false"
       integration: "false"
       production: "false"
-
   UserSignupSheetDataRange:
     Environment:
       local: "Admintool!A1"
@@ -178,7 +160,6 @@ Mappings:
       staging: "Admintool!A1"
       integration: "Admintool!A1"
       production: "Admintool!A1"
-
   UserSignupSheetHeaderRange:
     Environment:
       local: "Admintool!A1:Y1"
