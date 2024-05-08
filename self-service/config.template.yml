@@ -206,7 +206,7 @@ Resources:
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "allowed-email-domains-source"
@@ -214,14 +214,14 @@ Resources:
       Value: !FindInMap [ AllowedEmailDomainsSource, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   ApiNotificationsEmailParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment]
           - "api"
           - "notifications-email"
@@ -229,14 +229,14 @@ Resources:
       Value: !FindInMap [ ApiNotificationsEmail, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   AuthBaseUrlParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "api"
           - "auth-base-url"
@@ -244,14 +244,14 @@ Resources:
       Value: !FindInMap [ AuthBaseUrl, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   ConfigDeletionProtectionParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "config"
           - "deletion-protection-enabled"
@@ -259,14 +259,14 @@ Resources:
       Value: !FindInMap [ ConfigDeletionProtection, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   CognitoExternalIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "cognito"
           - "external-id"
@@ -274,14 +274,14 @@ Resources:
       Value: !FindInMap [ CognitoExternalId, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   GoogleAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "google-analytics-4-disabled"
@@ -289,14 +289,14 @@ Resources:
       Value: !FindInMap [ GoogleAnalyticsDisabled, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   GoogleAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "google-analytics-4-gtm-container-id"
@@ -304,14 +304,14 @@ Resources:
       Value: !FindInMap [ GoogleAnalyticsGtmContainerId, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   GoogleTagIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "google-tag-id"
@@ -319,14 +319,14 @@ Resources:
       Value: !FindInMap [ GoogleTagId, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   IdentityVerificationEnabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "api"
           - "identity-verification-enabled"
@@ -334,14 +334,14 @@ Resources:
       Value: !FindInMap [ IdentityVerificationEnabled, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   PublicBetaSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "public-beta-sheet-data-range"
@@ -349,14 +349,14 @@ Resources:
       Value: !FindInMap [ PublicBetaSignupSheetDataRange, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   PublicBetaSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "public-beta-sheet-header-range"
@@ -364,14 +364,14 @@ Resources:
       Value: !FindInMap [ PublicBetaSheetHeaderRange, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   ShowTestBannerParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "show-test-banner"
@@ -379,14 +379,14 @@ Resources:
       Value: !FindInMap [ ShowTestBanner, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UniversalAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "universal-analytics-disabled"
@@ -394,14 +394,14 @@ Resources:
       Value: !FindInMap [ UniversalAnalyticsDisabled, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UniversalAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "universal-analytics-gtm-container-id"
@@ -409,14 +409,14 @@ Resources:
       Value: !FindInMap [ UniversalAnalyticsGtmContainerId, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UseCognitoDisasterRecoveryParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "use-cognito-dr"
@@ -424,14 +424,14 @@ Resources:
       Value: !FindInMap [ UseCognitoDisasterRecovery, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UseStubOtpParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "use-stub-otp"
@@ -439,14 +439,14 @@ Resources:
       Value: !FindInMap [ UseStubOtp, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UserSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "user-signup-sheet-data-range"
@@ -454,14 +454,14 @@ Resources:
       Value: !FindInMap [ UserSignupSheetDataRange, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
 
   UserSignupSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     Properties:
       Name: !Join
         - "/"
-        - - !Ref Application
+        - - !Sub "/${Application}"
           - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
           - "frontend"
           - "user-signup-sheet-header-range"
@@ -469,4 +469,4 @@ Resources:
       Value: !FindInMap [ UserSignupSheetHeaderRange, Environment, !Ref Environment ]
       Tags:
         "sse:component": "onboarding-config"
-        "sse:application": !Ref Application
+        "sse:application": !Sub "/${Application}"
