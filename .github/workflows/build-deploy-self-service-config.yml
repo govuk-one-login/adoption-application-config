@@ -5,13 +5,17 @@ on:
     branches:
       - main
     paths:
-      - self-service/*
+      - *
+#      - self-service/*
 
 permissions: { }
 
 defaults:
   run:
     shell: bash
+
+env:
+  AWS_REGION: eu-west-2
 
 jobs:
   deploy-development:
@@ -20,8 +24,6 @@ jobs:
     environment: sse_development
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
-    env:
-      AWS_REGION: eu-west-2
     steps:
       - name: Deploy (development)
         id: deploy-development
