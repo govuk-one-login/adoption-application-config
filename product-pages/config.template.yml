@@ -32,7 +32,7 @@ Mappings:
       dev: "https://admin.development.sign-in.service.gov.uk"
       build: "https://admin.build.sign-in.service.gov.uk"
       staging: "https://admin.staging.sign-in.service.gov.uk"
-      integration: "https://admin.integration.sign-in.service.gov.uk"
+      integration: "https://admin.integration.sign-in.service.gov.uk" # Question, currently set to https://admin.sign-in.service.gov.uk
       production: "https://admin.sign-in.service.gov.uk"
   GoogleAnalyticsDisabled:
     Environment:
@@ -40,7 +40,7 @@ Mappings:
       dev: "false"
       build: "false"
       staging: "false"
-      integration: "true"
+      integration: "false"
       production: "true"
   GoogleAnalyticsGtmContainerId:
     Environment:
@@ -50,14 +50,6 @@ Mappings:
       staging: "GTM-KD86CMZ"
       integration: "GTM-KD86CMZ"
       production: "GTM-K4PBJH3"
-  GoogleTagId:
-    Environment:
-      local: "GTM-PFTQ6G2"
-      dev: "GTM-PFTQ6G2"
-      build: "GTM-PFTQ6G2"
-      staging: "GTM-PFTQ6G2"
-      integration: "GTM-PFTQ6G2"
-      production: "GTM-W38DXV2"
   GoogleSheetsEnabled:
     Environment:
       local: "true"
@@ -66,70 +58,78 @@ Mappings:
       staging: "true"
       integration: "true"
       production: "true"
+  GoogleTagId:
+    Environment:
+      local: "GTM-PFTQ6G2"
+      dev: "GTM-PFTQ6G2"
+      build: "GTM-PFTQ6G2"
+      staging: "GTM-PFTQ6G2"
+      integration: "GTM-PFTQ6G2"
+      production: "GTM-W38DXV2"
   JiraAuthUserName:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
+      dev: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
+      build: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
+      staging: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
+      integration: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
+      production: "atlassian-service-account-jira-integration@digital.cabinet-office.gov.uk"
   JiraIntegrationEnabled:
     Environment:
-      local: "false"
-      dev: "false"
-      build: "false"
-      staging: "false"
-      integration: "false"
+      local: "true"
+      dev: "true"
+      build: "true"
+      staging: "true"
+      integration: "true"
       production: "false"
   MailingListSheetDataRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "user who have requested to join the mailing list !A1"
+      dev: "user who have requested to join the mailing list !A1"
+      build: "user who have requested to join the mailing list !A1"
+      staging: "user who have requested to join the mailing list !A1"
+      integration: "user who have requested to join the mailing list !A1"
+      production: "user who have requested to join the mailing list !A1"
   MailingListSheetHeaderRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "user who have requested to join the mailing list !A1:D1"
+      dev: "user who have requested to join the mailing list !A1:D1"
+      build: "user who have requested to join the mailing list !A1:D1"
+      staging: "user who have requested to join the mailing list !A1:D1"
+      integration: "user who have requested to join the mailing list !A1:D1"
+      production: "user who have requested to join the mailing list !A1:D1"
   PrototypeAccessSheetDataRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "Htmlprototypeaccess!A1"
+      dev: "Htmlprototypeaccess!A1"
+      build: "Htmlprototypeaccess!A1"
+      staging: "Htmlprototypeaccess!A1"
+      integration: "Htmlprototypeaccess!A1"
+      production: "Htmlprototypeaccess!A1"
   PrototypeAccessSheetHeaderRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "Htmlprototypeaccess!A1:Y1"
+      dev: "Htmlprototypeaccess!A1:Y1"
+      build: "Htmlprototypeaccess!A1:Y1"
+      staging: "Htmlprototypeaccess!A1:Y1"
+      integration: "Htmlprototypeaccess!A1:Y1"
+      production: "Htmlprototypeaccess!A1:Y1"
   RegisterSheetDataRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "Getstarted!A1"
+      dev: "Getstarted!A1"
+      build: "Getstarted!A1"
+      staging: "Getstarted!A1"
+      integration: "Getstarted!A1"
+      production: "Getstarted!A1"
   RegisterSheetHeaderRange:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "Getstarted!A1:Y1"
+      dev: "Getstarted!A1:Y1"
+      build: "Getstarted!A1:Y1"
+      staging: "Getstarted!A1:Y1"
+      integration: "Getstarted!A1:Y1"
+      production: "Getstarted!A1:Y1"
   ShowTestBanner:
     Environment:
       local: "true"
@@ -188,28 +188,28 @@ Mappings:
       production: "false"
   ZendeskApiUrl:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "https://govuk.zendesk.com/api/v2"
+      dev: "https://govuk.zendesk.com/api/v2"
+      build: "https://govuk.zendesk.com/api/v2"
+      staging: "https://govuk.zendesk.com/api/v2"
+      integration: "https://govuk.zendesk.com/api/v2"
+      production: "https://govuk.zendesk.com/api/v2"
   ZendeskTag:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "sign_in_service_teams"
+      dev: "sign_in_service_teams"
+      build: "sign_in_service_teams"
+      staging: "sign_in_service_teams"
+      integration: "sign_in_service_teams"
+      production: "sign_in_service_teams"
   ZendeskTagSSE:
     Environment:
-      local: "unknown"
-      dev: "unknown"
-      build: "unknown"
-      staging: "unknown"
-      integration: "unknown"
-      production: "unknown"
+      local: "self_service_admin"
+      dev: "self_service_admin"
+      build: "self_service_admin"
+      staging: "self_service_admin"
+      integration: "self_service_admin"
+      production: "self_service_admin"
 
 Conditions:
   IsLocal: !Equals [ !Ref Environment, "local" ]
