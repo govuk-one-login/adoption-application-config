@@ -204,6 +204,7 @@ Resources:
   AllowedEmailDomainsSourceParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -221,6 +222,7 @@ Resources:
   ApiNotificationsEmailParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -238,6 +240,7 @@ Resources:
   AuthBaseUrlParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -255,6 +258,7 @@ Resources:
   ConfigDeletionProtectionParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -272,6 +276,7 @@ Resources:
   CognitoExternalIdParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -289,6 +294,7 @@ Resources:
   GoogleAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -306,6 +312,7 @@ Resources:
   GoogleAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -323,6 +330,7 @@ Resources:
   GoogleTagIdParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -340,6 +348,7 @@ Resources:
   IdentityVerificationEnabledParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -357,6 +366,7 @@ Resources:
   PublicBetaSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -374,6 +384,7 @@ Resources:
   PublicBetaSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -391,6 +402,7 @@ Resources:
   ShowTestBannerParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -408,6 +420,7 @@ Resources:
   UniversalAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -425,6 +438,7 @@ Resources:
   UniversalAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -442,6 +456,7 @@ Resources:
   UseCognitoDisasterRecoveryParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -459,6 +474,7 @@ Resources:
   UseStubOtpParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -476,6 +492,7 @@ Resources:
   UserSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -493,6 +510,7 @@ Resources:
   UserSignupSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
