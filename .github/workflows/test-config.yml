@@ -1,0 +1,48 @@
+name: Test all configuration
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  merge_group:
+    types: [ checks_requested ]
+
+permissions:
+  id-token: write
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  run-checkov:
+    name: Checkov
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Run checkov
+        uses: govuk-one-login/github-actions/code-quality/run-checkov@5dacba941def444d69f02843feaebed79b5fca51 # 11/04/2023
+        with:
+          skip-checks:
+            CKV_SECRET_6
+            CKV_SECRET_9
+
+  check-shell-scripts:
+    name: Shell scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Run shell checks
+        uses: govuk-one-login/github-actions/code-quality/check-shell-scripts@5dacba941def444d69f02843feaebed79b5fca51 # 11/04/2023
+
+  check-linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check linting and formatting
+        uses: govuk-one-login/github-actions/code-quality/check-linting@5dacba941def444d69f02843feaebed79b5fca51 # 11/04/2023
+        with:
+          run-prettier: true
+          run-eslint: false
+          run-cfn-lint: true
