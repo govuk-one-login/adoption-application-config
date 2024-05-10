@@ -247,7 +247,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "admin-tool-url"
       Type: String
@@ -263,7 +263,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "google-analytics-4-disabled"
       Type: String
@@ -279,7 +279,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "google-analytics-4-gtm-container-id"
       Type: String
@@ -295,7 +295,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "google-tag-id"
       Type: String
@@ -311,7 +311,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "google-sheets-integration-enabled"
       Type: String
@@ -327,7 +327,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "jira-auth-user-name"
       Type: String
@@ -343,7 +343,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "jira-integration-enabled"
       Type: String
@@ -359,7 +359,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "mailing-list-sheet-data-range"
       Type: String
@@ -375,7 +375,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "mailing-list-sheet-header-range"
       Type: String
@@ -391,7 +391,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "prototype-access-sheet-data-range"
       Type: String
@@ -407,7 +407,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "prototype-access-sheet-header-range"
       Type: String
@@ -423,7 +423,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "register-sheet-data-range"
       Type: String
@@ -439,7 +439,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "register-sheet-header-range"
       Type: String
@@ -455,7 +455,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "show-test-banner"
       Type: String
@@ -471,7 +471,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "universal-analytics-disabled"
       Type: String
@@ -487,7 +487,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "universal-analytics-gtm-container-id"
       Type: String
@@ -503,7 +503,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "use-stub-jira"
       Type: String
@@ -519,7 +519,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "use-stub-servicenow"
       Type: String
@@ -535,7 +535,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "use-stub-sheets"
       Type: String
@@ -551,7 +551,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "use-stub-zendesk"
       Type: String
@@ -567,7 +567,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "zendesk-api-url"
       Type: String
@@ -583,7 +583,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "zendesk-tag"
       Type: String
@@ -599,7 +599,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment ]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "frontend"
           - "zendesk-tag-one-login-admin-tool"
       Type: String

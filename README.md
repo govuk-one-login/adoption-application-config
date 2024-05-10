@@ -14,9 +14,11 @@ To add new parameters to the pipeline an `AWS::SSM::Parameter` resource must be 
 
 ### Naming convention
 
-The naming convention for new parameters is `/application/environment/component/setting-name`:
+The naming convention for new parameters is `/application/component/setting-name`:
 
 The value given for the component section should relate to the stack being deployed, e.g. `frontend`, `cognito`, `api`. If a setting relates to multiple components within the application then the convention is to call this `config`.
+
+**Note:** An additional environment section will be added for [pseudo-environments such as local and preview](https://govukverify.atlassian.net/wiki/spaces/DFA/pages/3962929695/Build+and+Deployment+processes#Test-and-Local-Builds) stacks `/application/environment/component/setting-name`
 
 ### Resource
 
@@ -28,7 +30,7 @@ Under the Resources section:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment]
+          - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue]
           - "config"
           - "example-setting"
       Type: String
