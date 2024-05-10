@@ -1,0 +1,128 @@
+[
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"ApiNotificationsEmailParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/api/notifications-email"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"ShowTestBannerParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/show-test-banner"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"GoogleAnalyticsDisabledParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/google-analytics-4-disabled"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UniversalAnalyticsGtmContainerIdParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/universal-analytics-gtm-container-id"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"PublicBetaSheetHeaderRangeParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/public-beta-sheet-header-range"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"CognitoExternalIdParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/cognito/external-id"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UseCognitoDisasterRecoveryParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/use-cognito-dr"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"AllowedEmailDomainsSourceParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/allowed-email-domains-source"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UserSignupSheetHeaderRangeParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/user-signup-sheet-header-range"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UseStubOtpParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/use-stub-otp"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"ConfigDeletionProtectionParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/config/deletion-protection-enabled"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"AuthBaseUrlParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/api/auth-base-url"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"GoogleAnalyticsGtmContainerIdParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/google-analytics-4-gtm-container-id"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UniversalAnalyticsDisabledParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/universal-analytics-disabled"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"UserSignupSheetDataRangeParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/user-signup-sheet-data-range"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"PublicBetaSignupSheetDataRangeParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/public-beta-sheet-data-range"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"GoogleTagIdParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/frontend/google-tag-id"
+    }
+  },
+  {
+    "ResourceType":"AWS::SSM::Parameter",
+    "LogicalResourceId":"IdentityVerificationEnabledParameter",
+    "ResourceIdentifier": {
+      "Name":"/self-service/api/identity-verification-enabled"
+    }
+  }
+]

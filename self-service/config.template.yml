@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  govuk-one-login adoption-application-config self-service template version: v1.0.1
+  govuk-one-login adoption-application-config self-service template version: v1.0.0
   Configuration parameters for the Self-Service Experience application.
 
 Parameters:
@@ -203,6 +203,7 @@ Rules:
 Resources:
   AllowedEmailDomainsSourceParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -219,6 +220,7 @@ Resources:
 
   ApiNotificationsEmailParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -235,6 +237,7 @@ Resources:
 
   AuthBaseUrlParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -251,6 +254,7 @@ Resources:
 
   ConfigDeletionProtectionParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -267,6 +271,7 @@ Resources:
 
   CognitoExternalIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -283,6 +288,7 @@ Resources:
 
   GoogleAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -299,6 +305,7 @@ Resources:
 
   GoogleAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -315,6 +322,7 @@ Resources:
 
   GoogleTagIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -331,6 +339,7 @@ Resources:
 
   IdentityVerificationEnabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -347,6 +356,7 @@ Resources:
 
   PublicBetaSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -363,6 +373,7 @@ Resources:
 
   PublicBetaSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -379,6 +390,7 @@ Resources:
 
   ShowTestBannerParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -395,6 +407,7 @@ Resources:
 
   UniversalAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -411,6 +424,7 @@ Resources:
 
   UniversalAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -427,6 +441,7 @@ Resources:
 
   UseCognitoDisasterRecoveryParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -443,6 +458,7 @@ Resources:
 
   UseStubOtpParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -459,6 +475,7 @@ Resources:
 
   UserSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -475,6 +492,7 @@ Resources:
 
   UserSignupSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"

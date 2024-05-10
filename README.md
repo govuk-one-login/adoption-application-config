@@ -26,6 +26,7 @@ Under the Resources section:
 ```
   ExampleSettingParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
