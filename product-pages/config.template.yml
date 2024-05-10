@@ -32,7 +32,7 @@ Mappings:
       dev: "https://admin.development.sign-in.service.gov.uk"
       build: "https://admin.build.sign-in.service.gov.uk"
       staging: "https://admin.staging.sign-in.service.gov.uk"
-      integration: "https://admin.integration.sign-in.service.gov.uk" # Question, currently set to https://admin.sign-in.service.gov.uk
+      integration: "https://admin.integration.sign-in.service.gov.uk"
       production: "https://admin.sign-in.service.gov.uk"
   GoogleAnalyticsDisabled:
     Environment:
