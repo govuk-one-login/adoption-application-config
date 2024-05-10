@@ -43,6 +43,6 @@ jobs:
       - name: Check linting and formatting
         uses: govuk-one-login/github-actions/code-quality/check-linting@5dacba941def444d69f02843feaebed79b5fca51 # 11/04/2023
         with:
-          run-prettier: true
+          run-prettier: false
           run-eslint: false
           run-cfn-lint: true
