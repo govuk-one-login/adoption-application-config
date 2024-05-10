@@ -243,6 +243,7 @@ Rules:
 Resources:
   AdminToolParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -259,6 +260,7 @@ Resources:
 
   GoogleAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -275,6 +277,7 @@ Resources:
 
   GoogleAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -289,24 +292,9 @@ Resources:
         "sse:environment": !Ref Environment
         "sse:application": !Ref Application
 
-  GoogleTagIdParameter:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Name: !Join
-        - "/"
-        - - !Sub "/${Application}"
-          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
-          - "frontend"
-          - "google-tag-id"
-      Type: String
-      Value: !FindInMap [ GoogleTagId, Environment, !Ref Environment ]
-      Tags:
-        "sse:component": "adoption-application-config"
-        "sse:environment": !Ref Environment
-        "sse:application": !Ref Application
-
   GoogleSheetsEnabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -321,8 +309,26 @@ Resources:
         "sse:environment": !Ref Environment
         "sse:application": !Ref Application
 
+  GoogleTagIdParameter:
+    Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
+    Properties:
+      Name: !Join
+        - "/"
+        - - !Sub "/${Application}"
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
+          - "frontend"
+          - "google-tag-id"
+      Type: String
+      Value: !FindInMap [ GoogleTagId, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "adoption-application-config"
+        "sse:environment": !Ref Environment
+        "sse:application": !Ref Application
+
   JiraAuthUserNameParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -339,6 +345,7 @@ Resources:
 
   JiraIntegrationEnabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -355,6 +362,7 @@ Resources:
 
   MailingListSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -371,6 +379,7 @@ Resources:
 
   MailingListSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -387,6 +396,7 @@ Resources:
 
   PrototypeAccessSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -403,6 +413,7 @@ Resources:
 
   PrototypeAccessSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -419,6 +430,7 @@ Resources:
 
   RegisterSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -435,6 +447,7 @@ Resources:
 
   RegisterSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -451,6 +464,7 @@ Resources:
 
   ShowTestBannerParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -467,6 +481,7 @@ Resources:
 
   UniversalAnalyticsDisabledParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -483,6 +498,7 @@ Resources:
 
   UniversalAnalyticsGtmContainerIdParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -499,6 +515,7 @@ Resources:
 
   UseStubJiraParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -515,6 +532,7 @@ Resources:
 
   UseStubServicenowParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -531,6 +549,7 @@ Resources:
 
   UseStubSheetsParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -547,6 +566,7 @@ Resources:
 
   UseStubZendeskParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -563,6 +583,7 @@ Resources:
 
   ZendeskApiUrlParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -579,6 +600,7 @@ Resources:
 
   ZendeskTagParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -595,6 +617,7 @@ Resources:
 
   ZendeskTagSSEParameter:
     Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
