@@ -63,19 +63,20 @@ if [[ -z ${STACK_NAME+x} ]] || [[ -z ${APPLICATION+x} ]] || [[ -z ${ENVIRONMENT+
 fi
 
 echo "Creating changeset for stack '$STACK_NAME'"
-output="$(aws cloudformation create-change-set \
-            --stack-name "$STACK_NAME" \
-            --change-set-name ImportChangeSet \
-            --change-set-type IMPORT \
-            --resources-to-import "file://${ROOT_DIR}/${APPLICATION}/import.json" \
-            --template-body "file://${ROOT_DIR}/${APPLICATION}/config.template.yml" \
-            --parameters \
-              ParameterKey=Environment,ParameterValue="'dev'" \
-           2>&1 \
-          && aws cloudformation wait change-set-create-complete \
-               --change-set-name ImportChangeSet \
-               --stack-name "$STACK_NAME" \
-          || echo "Error" )"
+output="$(
+  aws cloudformation create-change-set \
+    --stack-name "$STACK_NAME" \
+    --change-set-name ImportChangeSet \
+    --change-set-type IMPORT \
+    --resources-to-import "file://${ROOT_DIR}/${APPLICATION}/import.json" \
+    --template-body "file://${ROOT_DIR}/${APPLICATION}/config.template.yml" \
+    --parameters ParameterKey=Environment,ParameterValue="'dev'" \
+    2>&1 &&
+    aws cloudformation wait change-set-create-complete \
+      --change-set-name ImportChangeSet \
+      --stack-name "$STACK_NAME" ||
+    echo "Error"
+)"
 
 if [[ "$output" =~ "ValidationError" ]]; then
   echo "Changeset for stack '$STACK_NAME' failed with output:"
