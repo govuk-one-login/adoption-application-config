@@ -227,7 +227,7 @@ Resources:
       Name: !Join
         - "/"
         - - !Sub "/${Application}"
-          - !If [IsLocal, !Sub "${Environment}-${LocalName}", !Ref Environment]
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
           - "api"
           - "notifications-email"
       Type: String
