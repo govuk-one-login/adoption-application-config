@@ -26,6 +26,14 @@ Parameters:
     Default: ""
 
 Mappings:
+  TestSetting:
+    Environment:
+      local: "true"
+      dev: "true"
+      build: "true"
+      staging: "true"
+      integration: "false"
+      production: "false"
   AdminTool:
     Environment:
       local: "https://admin.development.sign-in.service.gov.uk"
@@ -241,6 +249,24 @@ Rules:
           Only deploy "production" parameters to the production account
 
 Resources:
+  TestSettingParameter:
+    Type: AWS::SSM::Parameter
+    DeletionPolicy: "Retain"
+    UpdateReplacePolicy: "Retain"
+    Properties:
+      Name: !Join
+        - "/"
+        - - !Sub "/${Application}"
+          - !If [ IsLocal, !Sub "${Environment}-${LocalName}", !Ref AWS::NoValue ]
+          - "config"
+          - "test-setting"
+      Type: String
+      Value: !FindInMap [ TestSetting, Environment, !Ref Environment ]
+      Tags:
+        "sse:component": "adoption-application-config"
+        "sse:environment": !Ref Environment
+        "sse:application": !Ref Application
+        
   AdminToolParameter:
     Type: AWS::SSM::Parameter
     DeletionPolicy: "Retain"
