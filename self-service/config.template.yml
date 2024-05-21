@@ -62,10 +62,10 @@ Mappings:
     Environment:
       local: "018f04f8-900d-7cb3-90f3-a6638b90077b"
       dev: "018f04f8-5624-7556-afcd-f4ad74be87af"
-      build: "8F4E04ED-C267-4B63-8A2C-B2B27695D727"
-      staging: "8FDF9073-E02E-4957-B65E-A6EB83CC024E"
-      integration: "8F4E04ED-C267-4B63-8A2C-B2B27695D727"
-      production: "FCB815BE-922E-4A66-8185-BFAEAE8F3AA1"
+      build: "018f04f8-3367-7a6f-b3bf-3a4c7d7c74bd"
+      staging: "018f04f8-a900-77d1-b74f-53637bd7da93"
+      integration: "018f04f7-f3f3-7eb9-9b81-b6949e207d19"
+      production: "018f04f8-cde3-77cd-8128-4e9bed9510d2"
   GoogleAnalyticsDisabled:
     Environment:
       local: "false"
