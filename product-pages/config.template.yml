@@ -89,7 +89,7 @@ Mappings:
       build: "true"
       staging: "true"
       integration: "true"
-      production: "false"
+      production: "true"
   MailingListSheetDataRange:
     Environment:
       local: "user who have requested to join the mailing list !A1"
