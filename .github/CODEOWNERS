@@ -1,8 +1,2 @@
 # Global
-*   @govuk-one-login/sse-sres
-
-# Application pipelines
-/self-service/      @alphagov/di-sse-approvers
-/self-service/      @govuk-one-login/sse-approvers
-/product-pages/      @alphagov/di-sse-approvers
-/product-pages/      @govuk-one-login/sse-approvers
+*   @govuk-one-login/orchestration-team
