@@ -611,8 +611,6 @@ Resources:
 
   UseStubZendeskParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -629,8 +627,6 @@ Resources:
 
   ZendeskApiUrlParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -647,8 +643,6 @@ Resources:
 
   ZendeskTagParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -665,8 +659,6 @@ Resources:
 
   ZendeskTagSSEParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
