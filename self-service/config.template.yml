@@ -365,8 +365,6 @@ Resources:
 
   PublicBetaSignupSheetDataRangeParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
@@ -383,8 +381,6 @@ Resources:
 
   PublicBetaSheetHeaderRangeParameter:
     Type: AWS::SSM::Parameter
-    DeletionPolicy: "Retain"
-    UpdateReplacePolicy: "Retain"
     Properties:
       Name: !Join
         - "/"
