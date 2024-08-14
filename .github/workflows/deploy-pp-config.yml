@@ -19,7 +19,6 @@ jobs:
   deploy-development:
     name: Deploy Product Pages Configuration (development)
     runs-on: ubuntu-latest
-    environment: pp_development
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
     steps:
@@ -28,16 +27,15 @@ jobs:
         uses: govuk-one-login/github-actions/secure-pipelines/deploy-application@a154a3241f59047aea80820a36c8e5cddb9d77ce # 8/05/2024
         timeout-minutes: 15
         with:
-          aws-role-arn: ${{ vars.DEPLOYMENT_ROLE_ARN }}
-          artifact-bucket-name: ${{ vars.ARTIFACT_SOURCE_BUCKET_NAME }}
-          pipeline-name: ${{ vars.PIPELINE_NAME }}
+          aws-role-arn: ${{ secrets.PP_DEV_DEPLOYMENT_ROLE_ARN }}
+          artifact-bucket-name: ${{ secrets.PP_DEV_ARTIFACT_SOURCE_BUCKET_NAME }}
+          pipeline-name: ${{ secrets.PP_DEV_PIPELINE_NAME }}
           template: product-pages/config.template.yml
 
   deploy-production:
     name: Deploy Product Pages Configuration (production)
     runs-on: ubuntu-latest
     needs: deploy-development
-    environment: pp_production
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
     steps:
@@ -46,7 +44,7 @@ jobs:
         uses: govuk-one-login/github-actions/secure-pipelines/deploy-application@a154a3241f59047aea80820a36c8e5cddb9d77ce # 8/05/2024
         timeout-minutes: 15
         with:
-          aws-role-arn: ${{ vars.DEPLOYMENT_ROLE_ARN }}
-          artifact-bucket-name: ${{ vars.ARTIFACT_SOURCE_BUCKET_NAME }}
-          pipeline-name: ${{ vars.PIPELINE_NAME }}
+          aws-role-arn: ${{ secrets.PP_PROD_DEPLOYMENT_ROLE_ARN }}
+          artifact-bucket-name: ${{ secrets.PP_PROD_ARTIFACT_SOURCE_BUCKET_NAME }}
+          pipeline-name: ${{ secrets.PP_PROD_PIPELINE_NAME }}
           template: product-pages/config.template.yml
