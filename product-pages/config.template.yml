@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   govuk-one-login adoption-application-config product-pages template version: v1.0.0
-  Configuration parameters for the Product Pages application.
+  Configuration parameters for the Product Pages application
 
 Parameters:
   Application:
