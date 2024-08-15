@@ -19,7 +19,6 @@ jobs:
   deploy-development:
     name: Deploy Self-Service Experience Configuration (development)
     runs-on: ubuntu-latest
-    environment: sse_development
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
     steps:
@@ -37,7 +36,6 @@ jobs:
     name: Deploy Self-Service Experience Configuration (production)
     runs-on: ubuntu-latest
     needs: deploy-development
-    environment: sse_production
     outputs:
       url: ${{ steps.deploy.outputs.pipeline-url }}
     steps:
